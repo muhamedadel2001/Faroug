@@ -7,6 +7,7 @@ class OnBoardingBodyScreen extends StatefulWidget {
   @override
   State<OnBoardingBodyScreen> createState() => _OnBoardingBodyScreenState();
 }
+
 class _OnBoardingBodyScreenState extends State<OnBoardingBodyScreen> {
   late OnBoardingCubit cubit;
   @override
@@ -14,6 +15,7 @@ class _OnBoardingBodyScreenState extends State<OnBoardingBodyScreen> {
     cubit = OnBoardingCubit();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,7 @@ class _OnBoardingBodyScreenState extends State<OnBoardingBodyScreen> {
               controller: OnBoardingCubit.get(context).pageController,
               itemCount: cubit.list.length,
               onPageChanged: (index) {
-                cubit.checkLast(index,);
+                cubit.checkLast(index, context);
               }),
         ),
       ]),

@@ -59,18 +59,23 @@ class InventoryProdCubit extends Cubit<InventoryProdState> {
     });
   }
 
-   getPercentage() async {
-    await inventoryApi.getProduction().then((value) {
-      inventoryModel = value;
-      for (var item in inventoryModel.productionInventories!) {
-        if (item.category == 'Eggs') {
-          sumForEggs += item.quantity!.toInt();
-          sumForAll += item.quantity!.toInt();
-        } else {
-          sumForAll += item.quantity!.toInt();
+  getPercentage() async {
+    try {
+      emit(GetPercentageLoading());
+      await inventoryApi.getProduction().then((value) {
+        inventoryModel = value;
+        for (var item in inventoryModel.productionInventories!) {
+          if (item.category == 'Eggs') {
+            sumForEggs += item.quantity!.toInt();
+            sumForAll += item.quantity!.toInt();
+          } else {
+            sumForAll += item.quantity!.toInt();
+          }
         }
-      }
-      emit(GetPercentage());
-    });
+        emit(GetPercentageSuccess());
+      });
+    } catch (err) {
+      emit(GetPercentageFailed());
+    }
   }
 }

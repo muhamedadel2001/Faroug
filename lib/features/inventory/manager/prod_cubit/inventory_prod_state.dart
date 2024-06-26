@@ -11,4 +11,6 @@ class GetProdItemsFailed extends InventoryProdState {}
 class CreateProdItemsLoading extends InventoryProdState {}
 class CreateProdItemsSuccess extends InventoryProdState {}
 class CreateProdItemsFailed extends InventoryProdState {}
-class GetPercentage extends InventoryProdState {}
+class GetPercentageSuccess extends InventoryProdState {}
+class GetPercentageFailed extends InventoryProdState {}
+class GetPercentageLoading extends InventoryProdState {}

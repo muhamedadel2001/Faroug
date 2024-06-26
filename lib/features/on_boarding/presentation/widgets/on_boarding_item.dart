@@ -1,8 +1,12 @@
 import 'package:finalproject/core/utilities/styles/fonts.dart';
+import 'package:finalproject/features/login/data/login_api.dart';
+import 'package:finalproject/features/login/manager/cubit/cubit/login_cubit_cubit.dart';
+import 'package:finalproject/features/login/presentation/login_screen.dart';
 import 'package:finalproject/features/on_boarding/data/on_boarding_model.dart';
 import 'package:finalproject/features/on_boarding/manager/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:finalproject/core/utilities/screens.dart' as screens;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utilities/paint.dart';
 import '../../../../core/utilities/logic/responsive.dart';
@@ -52,8 +56,15 @@ class OnBoardingItem extends StatelessWidget {
           child: ProgressButton(
               onNext: () {
                 if (model.size == 100) {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, screens.loginScreen, (route) => false);
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                              create: (context) => LoginCubit(LoginApi()),
+                              child: const LoginScreen(),
+                            )),
+                    (route) => false,
+                  );
                 } else {
                   OnBoardingCubit.get(context).nextPage();
                 }

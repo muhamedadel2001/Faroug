@@ -3,7 +3,6 @@ import 'package:finalproject/features/home/presentation/widgets/financial_analys
 import 'package:finalproject/features/home/presentation/widgets/financial_performane_container.dart';
 import 'package:flutter/material.dart';
 
-
 class AnalysisFlocks extends StatelessWidget {
   const AnalysisFlocks({super.key});
 
@@ -11,14 +10,15 @@ class AnalysisFlocks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: ResponsiveCalc().heightRatio(14)),
-      child:  SingleChildScrollView(
+      child: SingleChildScrollView(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        const FinancialPerformanceContainer(),
-          SizedBox(height: ResponsiveCalc().heightRatio(17),),
+          const FinancialPerformanceContainer(),
+          SizedBox(
+            height: ResponsiveCalc().heightRatio(17),
+          ),
           FinancialAnalysisContainer(),
-
         ],
       )),
     );

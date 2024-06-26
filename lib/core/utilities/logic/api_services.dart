@@ -7,8 +7,8 @@ class WebServices {
   WebServices() {
     final BaseOptions baseOptions = BaseOptions(
         baseUrl: baseUrl,
-        connectTimeout: const Duration(seconds: 15),
-        receiveTimeout: const Duration(seconds: 15),
+        connectTimeout: const Duration(seconds: 20),
+        receiveTimeout: const Duration(seconds: 20),
         headers: {
           'Cookie': "accessToken=${SharedPrefUtil().getToken()}",
         });

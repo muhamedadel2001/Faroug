@@ -13,28 +13,25 @@ class CustomListViewProdItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: ResponsiveCalc().heightRatio(70.0)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Total Items ${InventoryProdCubit.get(context).prodList.length}',
-            style: MyFonts.textStyle16,
-          ),
-          Expanded(
-            child: ListView.separated(
-                itemCount: InventoryProdCubit.get(context).prodList.length,
-                separatorBuilder: (context, index) {
-                  return const Divider();
-                },
-                itemBuilder: (context, index) {
-                  return ProductionItem(
-                      model: InventoryProdCubit.get(context).prodList[index]);
-                }),
-          )
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Total Items ${InventoryProdCubit.get(context).prodList.length}',
+          style: MyFonts.textStyle16,
+        ),
+        Expanded(
+          child: ListView.separated(
+              itemCount: InventoryProdCubit.get(context).prodList.length,
+              separatorBuilder: (context, index) {
+                return const Divider();
+              },
+              itemBuilder: (context, index) {
+                return ProductionItem(
+                    model: InventoryProdCubit.get(context).prodList[index]);
+              }),
+        )
+      ],
     );
   }
 }

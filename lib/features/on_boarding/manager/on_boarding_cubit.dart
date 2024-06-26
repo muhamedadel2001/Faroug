@@ -1,6 +1,6 @@
+import 'package:finalproject/core/utilities/logic/shared_pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../data/on_boarding_model.dart';
 part 'on_boarding_state.dart';
 
@@ -40,11 +40,12 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     pageController.nextPage(
         duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
   }
-  checkLast(int index,) {
-    if (index == list.length - 2) {
-      isLast = true;
-      emit(OnBoardingLastPage());
 
+  checkLast(int index, BuildContext context) {
+    if (index == list.length - 1) {
+      isLast = true;
+      SharedPrefUtil().saveLastOnBoarding(true);
+      emit(OnBoardingLastPage());
     } else {
       isLast = false;
     }

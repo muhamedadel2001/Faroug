@@ -1,3 +1,4 @@
+import 'package:finalproject/core/utilities/logic/shared_pref_util.dart';
 import 'package:finalproject/core/utilities/styles/colors.dart';
 import 'package:finalproject/features/inventory/manager/prod_cubit/inventory_prod_cubit.dart';
 import 'package:finalproject/features/main_page_screen/presentation/widget/poultry_exchange.dart';
@@ -12,6 +13,7 @@ import '../../../../core/utilities/logic/responsive.dart';
 import '../../../../core/utilities/styles/fonts.dart';
 import '../../../../core/widgets/custom_tab_bar_button.dart';
 import 'farm_revenue_sources.dart';
+import 'latest_news_screen.dart';
 
 class HomePageScreenBody extends StatelessWidget {
   const HomePageScreenBody({super.key});
@@ -47,8 +49,9 @@ class HomePageScreenBody extends StatelessWidget {
               ),
             ]),
             IconButton(
-              icon: const Icon(Icons.notifications),
+              icon: const Icon(Icons.logout_outlined),
               onPressed: () {
+                ProfileCubit.get(context).signOut(context);
                 // Action to perform when the notification button is pressed
               },
             ),
@@ -59,7 +62,7 @@ class HomePageScreenBody extends StatelessWidget {
         ),
         BlocBuilder<InventoryProdCubit, InventoryProdState>(
           builder: (context, state) {
-            if (state is GetPercentage) {
+            if (state is GetPercentageSuccess) {
               return FarmRevenueCard(
                 percentage: InventoryProdCubit.get(context).sumForEggs /
                     InventoryProdCubit.get(context).sumForAll *
@@ -102,9 +105,13 @@ class HomePageScreenBody extends StatelessWidget {
         SizedBox(
           height: ResponsiveCalc().heightRatio(20.0),
         ),
-
         // const HomePageScreenBodyCard(),
+        LatestNewsScreen(),
       ],
-    ));
+
+    )
+
+
+    );
   }
 }
