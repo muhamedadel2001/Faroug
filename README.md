@@ -4,16 +4,54 @@ management for small and medium-sized farms. By integrating financial tracking, 
 monitoring, and market updates, providing a comprehensive solution that enhances farm 
 productivity and management efficiency.
 
+ # Features
+ Financial Tracking:
+ 
+ Expense Tracking: Log daily, weekly, and monthly expenses.
+ 
+ Income Recording: Record sales and other sources of income.
+ 
+ Profit/Loss Analysis: Generate reports showing profit margins and loss areas.
+ 
+ Budget Planning: Create and manage budgets for feed, maintenance, and other costs.
+ 
+ Inventory Management: Track feed, medicine, and other essential supplies.
+ 
+ Health Monitoring:
+ 
+ Health Records: Maintain individual health records for each flock.
+ 
+ Disease Detection: Use machine learning to analyze symptoms and detect potential diseases early.
+ 
+ Vaccination Schedule: Keep track of vaccination schedules and reminders.
+ 
+ Weight Tracking: Monitor the weight of the poultry to ensure healthy growth.
+ 
+ Environment Monitoring: Measure and track temperature, humidity, and other environmental factors.
 
-## Getting Started
+ Additional Features:
+ 
+ Farm Activity Log: Keep a daily log of all farm activities and tasks.
+ 
+ Task Management: Assign tasks to workers and track their completion.
+ 
+ Data Analytics: Use data analytics to gain insights into farm performance.
+ 
+ Alerts and Notifications: Set up alerts for important events such as low inventory or health issues.
 
-This project is a starting point for a Flutter application.
+ #Built With :
+ 
+ Flutter Technology
 
-A few resources to get you started if this is your first Flutter project:
+ # Figma Design:
+ [Figma](https://www.figma.com/design/JX109sr4GzGcYYGOLIsrvS/Final-Graduation-Project?node-id=153-21936&t=X69AH6Omi3PUfWMy-0)
+ 
+ 
+ 
+ 
+ 
+  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
