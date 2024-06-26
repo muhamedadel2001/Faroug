@@ -1,6 +1,9 @@
-# finalproject
+# Faroug
+by using machine learning The "Faroug" mobile application has successfully addressed critical challenges in poultry farm 
+management for small and medium-sized farms. By integrating financial tracking, health 
+monitoring, and market updates, providing a comprehensive solution that enhances farm 
+productivity and management efficiency.
 
-A final Flutter project.
 
 ## Getting Started
 
