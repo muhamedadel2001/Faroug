@@ -1,6 +1,3 @@
-import 'package:finalproject/core/utilities/screens.dart';
-import 'package:finalproject/core/utilities/styles/colors.dart';
-import 'package:finalproject/features/new_flock/new_flock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +10,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    print(index);
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocBuilder<NavBarCubit, NavBarState>(
@@ -20,9 +19,9 @@ class Home extends StatelessWidget {
           final cubit = BlocProvider.of<NavBarCubit>(context);
           List<Widget> screen = cubit.screens;
           if (index != -1) {
-            int? res = index!;
+            int? res = index;
             index = -1;
-            return screen[res!];
+            return screen[res];
           } else {
             return screen[cubit.idx];
           }

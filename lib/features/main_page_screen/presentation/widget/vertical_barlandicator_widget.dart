@@ -1,21 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:vertical_percent_indicator/vertical_percent_indicator.dart';
 
 import '../../../../core/utilities/logic/responsive.dart';
 
-
-class VerticalBarIndicatorWidget extends StatefulWidget {
-
-  @override
-  State<VerticalBarIndicatorWidget> createState() => _VerticalBarIndicatorState();
-}
-
-class _VerticalBarIndicatorState extends State<VerticalBarIndicatorWidget> {
+class VerticalBarIndicatorWidget extends StatelessWidget {
+  const VerticalBarIndicatorWidget({super.key, required this.percent});
+  final double percent;
   @override
   Widget build(BuildContext context) {
     return VerticalBarIndicator(
-      percent: 0.4,
+      percent: percent,
       width: ResponsiveCalc().widthRatio(20),
       height: ResponsiveCalc().heightRatio(275),
       color: const [

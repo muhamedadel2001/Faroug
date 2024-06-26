@@ -139,6 +139,7 @@ class _AddInventoryConsBodyScreenState
                         content: Text('Opps something wrong ! !')));
                   }
                   if (state is CreateConsItemsSuccess) {
+
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(

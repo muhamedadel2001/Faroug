@@ -12,8 +12,8 @@ class FinancialAnalysisContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
-          gradient: const LinearGradient(
-              begin: Alignment.centerRight, colors: blueLinear)),
+          gradient: LinearGradient(
+              begin: Alignment.centerRight, colors: opacityLinear)),
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: ResponsiveCalc().widthRatio(21),

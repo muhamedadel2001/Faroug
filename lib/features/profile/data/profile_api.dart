@@ -8,6 +8,7 @@ import '../../../core/utilities/logic/api_services.dart';
 class ProfileApi extends WebServices {
   final userProfile = 'user/${SharedPrefUtil().getId()}';
   final numberOfBirds = 'birds';
+  final logOut = 'auth/logout';
   Future<dynamic> getProfile() async {
     try {
       final Response response = await dio.get(
@@ -39,5 +40,9 @@ class ProfileApi extends WebServices {
     } catch (err) {
       print(err);
     }
+  }
+
+  Future<void> signOut() async {
+    await dio.post(logOut, options: Options(validateStatus: (_) => true));
   }
 }

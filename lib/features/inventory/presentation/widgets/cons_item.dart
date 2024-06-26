@@ -72,12 +72,12 @@ class ConsumptionItem extends StatelessWidget {
                       Flexible(
                         child: model.prercent! > 50
                             ? Text(
-                                '${model.prercent}%  ',
+                                '${model.prercent!.toInt()}%  ',
                                 style: MyFonts.textStyleForm12
                                     .copyWith(color: Colors.green),
                               )
                             : Text(
-                                '${model.prercent}%  ',
+                                '${model.prercent!.toInt()}%  ',
                                 style: MyFonts.textStyleForm12
                                     .copyWith(color: Colors.red),
                               ),

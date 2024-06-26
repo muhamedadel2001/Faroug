@@ -1,16 +1,21 @@
+import 'package:finalproject/features/flock_details/data/models/flock_data_model.dart';
+import 'package:finalproject/features/flock_details/manager/record_cubit/records_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../utilities/styles/colors.dart';
 import '../utilities/styles/fonts.dart';
 
 class CustomSearchBar extends StatelessWidget {
+  final void Function(String val, List<FlockDataModel> records) cubitSearching;
   const CustomSearchBar({
     Key? key,
     this.onTap,
     this.validate,
     this.controller,
     required this.hintText,
+    required this.cubitSearching,
   }) : super(key: key);
   final void Function()? onTap;
   final String hintText;
@@ -30,7 +35,7 @@ class CustomSearchBar extends StatelessWidget {
         controller: controller,
         validator: validate,
         decoration: InputDecoration(
-          hintText: 'Search ' + hintText,
+          hintText: 'Search $hintText',
           hintStyle: MyFonts.textStyleForm12,
           fillColor: borderColor,
           focusedBorder: OutlineInputBorder(
@@ -47,8 +52,12 @@ class CustomSearchBar extends StatelessWidget {
             FontAwesomeIcons.search,
             color: Color(0xffADA4A5),
           ),
-          // suffixIcon:
         ),
+        onChanged: (val) {
+          List<FlockDataModel> flocksCat =
+              BlocProvider.of<RecordsCubit>(context).recordsList;
+          cubitSearching(val, flocksCat);
+        },
       ),
     );
   }

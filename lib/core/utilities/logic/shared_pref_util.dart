@@ -19,6 +19,13 @@ class SharedPrefUtil {
   String? getToken() {
     return _prefs!.getString('user_token');
   }
+  Future<void> saveLastOnBoarding(bool boarding) async {
+    await _prefs!.setBool('boarding', boarding);
+  }
+
+  bool? getLastOnBoarding() {
+    return _prefs!.getBool('boarding');
+  }
   Future<void> saveCity(String city) async {
     await _prefs!.setString('city', city);
   }
@@ -38,4 +45,8 @@ class SharedPrefUtil {
   Future<void> removeToken() async {
     await _prefs!.remove('user_token');
   }
+  Future<void> removeLastOnBoarding() async {
+    await _prefs!.remove('boarding');
+  }
+
 }

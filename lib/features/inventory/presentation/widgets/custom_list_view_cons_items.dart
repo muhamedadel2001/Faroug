@@ -12,33 +12,30 @@ class CustomListViewConsItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: ResponsiveCalc().heightRatio(70.0)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Total Items ${InventoryConsCubit.get(context).consList.length}',
-            style: MyFonts.textStyle16,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Total Items ${InventoryConsCubit.get(context).consList.length}',
+          style: MyFonts.textStyle16,
+        ),
+        Expanded(
+          child: BlocBuilder<InventoryConsCubit, InventoryConsState>(
+            builder: (context, state) {
+              return ListView.separated(
+                  itemCount: InventoryConsCubit.get(context).consList.length,
+                  separatorBuilder: (context, index) {
+                    return const Divider();
+                  },
+                  itemBuilder: (context, index) {
+                    return ConsumptionItem(
+                        model:
+                            InventoryConsCubit.get(context).consList[index]);
+                  });
+            },
           ),
-          Expanded(
-            child: BlocBuilder<InventoryConsCubit, InventoryConsState>(
-              builder: (context, state) {
-                return ListView.separated(
-                    itemCount: InventoryConsCubit.get(context).consList.length,
-                    separatorBuilder: (context, index) {
-                      return const Divider();
-                    },
-                    itemBuilder: (context, index) {
-                      return ConsumptionItem(
-                          model:
-                              InventoryConsCubit.get(context).consList[index]);
-                    });
-              },
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

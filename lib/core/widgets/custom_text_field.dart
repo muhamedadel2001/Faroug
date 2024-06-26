@@ -12,10 +12,12 @@ class CustomTextFormField extends StatelessWidget {
       this.onTap,
       this.validate,
       this.controller,
-       this.hintText})
+       this.hintText,
+      this.enabled})
       : super(key: key);
-  final String ?hintText;
+  final String? hintText;
   final IconData? prefixIcon;
+  final bool? enabled;
   final IconData? suffixIcon;
   final TextInputType? type;
   final void Function()? suffixPress;
@@ -32,6 +34,7 @@ class CustomTextFormField extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: TextFormField(
+        enabled: enabled ?? true,
         style: MyFonts.textStyleForm12.copyWith(color: Colors.black),
         onTap: onTap,
         controller: controller,
@@ -56,6 +59,10 @@ class CustomTextFormField extends StatelessWidget {
           suffixIcon: suffixIcon != null
               ? IconButton(onPressed: suffixPress, icon: Icon(suffixIcon))
               : null,
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: borderColor)),
+              
         ),
       ),
     );
